@@ -31,17 +31,16 @@ print(soup.prettify())       #prettify()格式化打印出了它的内容，这�
 	<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>  
 	'''
 	#上面的 title a 等等 HTML 标签加上里面包括的内容就是 Tag，怎样用 Beautiful Soup 来方便地获取 Tags
-	# print(soup.title)
-	# print(soup.head)
+print(soup.title)
+print(soup.head)
 	
 	#tag有两个重要的属性，是 name 和 attrs
-	# print(soup.name)     #soup 对象本身比较特殊，它的 name 即为 [document]
-	# print(soup.head.name) #对于其他内部标签，输出的值便为标签本身的名称
-	
-	# print(soup.p.attrs)  # p 标签的所有属性打印输出了出来，得到一个字典
+print(soup.name)     #soup 对象本身比较特殊，它的 name 即为 [document]
+print(soup.head.name) #对于其他内部标签，输出的值便为标签本身的名称
+print(soup.p.attrs)  # p 标签的所有属性打印输出了出来，得到一个字典
 	
 	#如果我们想要单独获取某个属性,例如我们获取它的 class 叫什么
-	# print(soup.p['class'])   #等价的还有print(soup.p.get('class'))
+print(soup.p['class'])   #等价的还有print(soup.p.get('class'))
 
 
 #NavigableString 既然我们已经得到了标签的内容，那么我们要想获取标签内部的文字用 .string 即可
