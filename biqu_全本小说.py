@@ -14,7 +14,7 @@ soup_a = soup.find('div',class_="up").find('ul').find_all('a')
 for i in soup_a[::2]:
 	name = i.string
 	book_url = home_url + i['href']
-	isexists = os.path.exists(os.path.join('d:\\biqu',name))#.exists方法判断name是否存在，存在返回True
+	isexists = os.path.exists(os.path.join('d:\\biqu',name)) #.exists方法判断name是否存在，存在返回True
 	if not isexists:
 		print('创建名为',name,'的目录')
 		os.makedirs(os.path.join('d:\\biqu',name))
@@ -36,14 +36,15 @@ for i in soup_a[::2]:
 		soup_zhang = soup_text.find('div', class_="book reader").find('div', class_="showtxt")
 
 		#获取文本有两种写法
-		#下面是第一种
-		# with open(name+'全文.txt','w', encoding='utf-8') as f:
-		# 	f.write(soup_zhang.get_text())
+		# 下面是第一种
+		with open(name+'全文.txt','w', encoding='utf-8') as f:
+			f.write(soup_zhang.get_text())
 
 		# 这是第二种,以行为单位来操作，能在行尾加个\n等,排版灵活一点，当然排版还有别的方法
-		for text_w in soup_zhang:
-			with open(name+'全文.txt','w', encoding='utf-8') as f:
-				f.write(str(text_w.string)+'\n')
+		#但是这种方法需要加条件，不然只能抓取最后一章
+		# for text_w in soup_zhang:
+		# 	with open(name+'全文.txt','w', encoding='utf-8') as f:
+		# 		f.write(str(text_w.string)+'\n')
 		
 
 
