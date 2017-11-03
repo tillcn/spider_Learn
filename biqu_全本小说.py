@@ -14,7 +14,7 @@ soup_a = soup.find('div',class_="up").find('ul').find_all('a')
 for i in soup_a[::2]:
 	name = i.string
 	book_url = home_url + i['href']
-	isexists = os.path.exists(os.path.join('d:\\biqu',name))
+	isexists = os.path.exists(os.path.join('d:\\biqu',name))#.exists方法判断name是否存在，存在返回True
 	if not isexists:
 		print('创建名为',name,'的目录')
 		os.makedirs(os.path.join('d:\\biqu',name))
