@@ -41,7 +41,6 @@ for i in soup_a[::2]:
 			f.write(soup_zhang.get_text())
 
 		# 这是第二种,以行为单位来操作，能在行尾加个\n等,排版灵活一点，当然排版还有别的方法
-		#但是这种方法需要加条件，不然只能抓取最后一章
 		# for text_w in soup_zhang:
 		# 	with open(name+'全文.txt','w', encoding='utf-8') as f:
 		# 		f.write(str(text_w.string)+'\n')
