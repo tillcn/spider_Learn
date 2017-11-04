@@ -14,6 +14,7 @@ def request(all_url):
     return contnet
 img_num = 0
 for url_num in range(2,4966):
+    print('一共下载了'+str(img_num)+'张壁纸')
     img_num += 1
     url_all= 'https://wall.alphacoders.com/by_resolution.php?w=1920&h=1080&lang=Chinese&page=' + str(url_num)
     url = request(url_all)
@@ -54,4 +55,3 @@ for url_num in range(2,4966):
                 f.write(img.content)
         except:
             print('这张图片因为错误没有保存')
-        print('一共下载了'+str(img_num)+'张壁纸')
