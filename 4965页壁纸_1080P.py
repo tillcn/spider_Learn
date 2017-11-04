@@ -22,7 +22,7 @@ for url_num in range(2,4966):
     url_down = []
     isexists = os.path.exists(os.path.join('d:\\bizhi','第'+str(url_num)+'页')) #.exists方法判断name是否存在，存在返回True
     if not isexists:
-        print('创建目录d:\\bizhi'+'第'+str(url_num)+'页')
+        print('创建目录d:\\bizhi\\'+'第'+str(url_num)+'页')
         os.makedirs(os.path.join('d:\\bizhi','第'+str(url_num)+'页'))
     else:
         print('d:\\bizhi\\ '+'第'+str(url_num)+'页'+'目录已存在')
