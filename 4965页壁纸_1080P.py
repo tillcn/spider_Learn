@@ -46,8 +46,11 @@ for url_num in range(2,4966):
             with open('bizhi.txt', 'a+') as f_dict:
                 f_dict.write(photo_name +'\t' + photo_url+'\n')
         except:
-            print('这一条没保存')
+            print('这一条信息因为错误没保存')
         print('正在保存第'+i1+'张')
-        with open(photo_name + m, 'ab') as f:
-            f.write(img.content)
+        try:
+            with open(photo_name + m, 'ab') as f:
+                f.write(img.content)
+        except:
+            print('这张图片因为错误没有保存')
         print('一共下载了'+str(i1)+'张壁纸')
