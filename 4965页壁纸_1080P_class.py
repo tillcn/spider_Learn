@@ -21,7 +21,7 @@ class BiZhi(object):
             soup = BeautifulSoup(url.text, 'lxml').find('div',id="container_page").find_all('div', class_="thumb-container-big ")
             self.home_url = 'https://wall.alphacoders.com/'
             self.mkdir(url_num)
-            os.chdir('d:\\bizhi_1\\'+'第'+str(url_num)+'页')
+            os.chdir('d:\\bizhi\\'+'第'+str(url_num)+'页')
             self.sub_page(soup)
             
     def sub_page(self,soup):
@@ -46,13 +46,13 @@ class BiZhi(object):
             print('这张图片因为错误没有保存')
 
     def mkdir(self,url_num):
-        isexists = os.path.exists(os.path.join('d:\\bizhi_1','第'+str(url_num)+'页'))
+        isexists = os.path.exists(os.path.join('d:\\bizhi','第'+str(url_num)+'页'))
         if not isexists:
-            print('创建目录d:\\bizhi_1\\'+'第'+str(url_num)+'页')
-            os.makedirs(os.path.join('d:\\bizhi_1','第'+str(url_num)+'页'))
+            print('创建目录d:\\bizhi\\'+'第'+str(url_num)+'页')
+            os.makedirs(os.path.join('d:\\bizhi','第'+str(url_num)+'页'))
             return True
         else:
-            print('d:\\bizhi_1\\ '+'第'+str(url_num)+'页'+'\t目录已存在')
+            print('d:\\bizhi\\ '+'第'+str(url_num)+'页'+'\t目录已存在')
             return False
 
 bizhi = BiZhi()
