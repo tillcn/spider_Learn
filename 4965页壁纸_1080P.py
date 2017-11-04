@@ -25,7 +25,7 @@ for url_num in range(2,4966):
         print('创建目录d:\\bizhi'+'第'+str(url_num)+'页')
         os.makedirs(os.path.join('d:\\bizhi','第'+str(url_num)+'页'))
     else:
-        print('d:\\bizhi '+'第'+str(url_num)+'页'+'目录已存在')
+        print('d:\\bizhi\\ '+'第'+str(url_num)+'页'+'目录已存在')
     os.chdir('d:\\bizhi\\'+'第'+str(url_num)+'页')
     num=0
     for i in soup:
@@ -42,9 +42,12 @@ for url_num in range(2,4966):
         m = photo_url[-4:]
         num += 1
         i1 = str(num)
-        with open('bizhi.txt', 'a+') as f_dict:
-            f_dict.write(photo_name +'\t' + photo_url+'\n')
-        print('保存第'+i1+'张')
+        try:
+            with open('bizhi.txt', 'a+') as f_dict:
+                f_dict.write(photo_name +'\t' + photo_url+'\n')
+        except:
+            print('这一条没保存')
+        print('正在保存第'+i1+'张')
         with open(photo_name + m, 'ab') as f:
             f.write(img.content)
-    
+        print('一共下载了'+str(i1)+'张壁纸')
