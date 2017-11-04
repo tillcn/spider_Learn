@@ -12,14 +12,15 @@ def request(all_url):
     }
     contnet = requests.get(all_url, headers = headers)
     return contnet
-
+img_num = 0
 for url_num in range(2,4966):
+    img_num += 1
     url_all= 'https://wall.alphacoders.com/by_resolution.php?w=1920&h=1080&lang=Chinese&page=' + str(url_num)
     url = request(url_all)
     soup = BeautifulSoup(url.text, 'lxml').find('div',id="container_page").find_all('div', class_="thumb-container-big ")
     home_url = 'https://wall.alphacoders.com/'
     name_url_save = {}
-    url_down = []
+    #url_down = []          本来想记录下载链接然后后面使用的，但不用也挺好，先留着，封装class时再用
     isexists = os.path.exists(os.path.join('d:\\bizhi','第'+str(url_num)+'页')) #.exists方法判断name是否存在，存在返回True
     if not isexists:
         print('创建目录d:\\bizhi\\'+'第'+str(url_num)+'页')
@@ -40,17 +41,17 @@ for url_num in range(2,4966):
         url_down.append(photo_url)
         img = request(photo_url)
         m = photo_url[-4:]
-        num += 1
-        i1 = str(num)
         try:
             with open('bizhi.txt', 'a+') as f_dict:
                 f_dict.write(photo_name +'\t' + photo_url+'\n')
         except:
             print('这一条信息因为错误没保存')
-        print('正在保存第'+i1+'张')
         try:
+            num += 1
+            i1 = str(num)
+            print('正在保存第'+i1+'张')
             with open(photo_name + m, 'ab') as f:
                 f.write(img.content)
         except:
             print('这张图片因为错误没有保存')
-        print('一共下载了'+str(i1)+'张壁纸')
+        print('一共下载了'+str(img_num)+'张壁纸')
